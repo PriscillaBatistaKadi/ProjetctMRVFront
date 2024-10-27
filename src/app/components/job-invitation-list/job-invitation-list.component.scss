@@ -1,0 +1,68 @@
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    background-color: #ffa500;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .invitation-list, .accepted-list {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .invitation-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .invitation-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .job-details {
+    margin-top: 10px;
+  }
+  
+  .job-details a {
+    color: #ff4500;
+    text-decoration: none;
+  }
+  
+  .job-details a:hover {
+    text-decoration: underline;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accept-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .decline-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  

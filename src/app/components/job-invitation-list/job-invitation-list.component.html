@@ -1,0 +1,49 @@
+<div class="tabs">
+    <button (click)="currentTab = 'invited'" [class.active]="currentTab === 'invited'">Invited</button>
+    <button (click)="currentTab = 'accepted'" [class.active]="currentTab === 'accepted'">Accepted</button>
+  </div>
+  
+  <div *ngIf="currentTab === 'invited'" class="invitation-list">
+    <!-- Lista de convites recebidos -->
+    <div *ngFor="let invitation of invitations" class="invitation-card">
+      <div class="invitation-header">
+        <span class="job-name">{{ invitation.name }}</span>
+        <span class="job-date">{{ invitation.date | date }}</span>
+      </div>
+      <div class="job-details">
+        <div><strong>Name:</strong> {{ invitation.contactFirstName }}</div>
+        <div><strong>Localização:</strong> {{ invitation.suburb }}</div>
+        <div><strong>Descrição:</strong> {{ invitation.description }}</div>
+        <div><strong>Job Id:</strong> {{ invitation.id }}</div>
+        <div><strong>Category:</strong> {{ invitation.category }}</div>
+        <div><strong>Data Criação:</strong> {{ invitation.dateCreated }}</div>
+        <div><strong>Preço do Lead:</strong> {{ invitation.price | currency }}</div>
+      </div>
+      <div class="invitation-actions">
+        <button (click)="acceptJob(invitation.id)" class="btn accept-btn">Aceitar</button>
+        <button (click)="declineJob(invitation.id)" class="btn decline-btn">Recusar</button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="currentTab === 'accepted'" class="accepted-list">
+    <!-- Lista de convites aceitos -->
+    <div *ngFor="let accepted of acceptedInvitations" class="invitation-card">
+      <div class="invitation-header">
+        <span class="job-name">{{ accepted.name }}</span>
+        <span class="job-date">{{ accepted.date | date }}</span>
+      </div>
+      <div class="job-details">
+        <div><strong>Localização:</strong> {{ accepted.suburb }}</div>
+        <div><strong>Descrição:</strong> {{ accepted.description }}</div>
+        <div><strong>Job Id:</strong> {{ accepted.id }}</div>
+        <div><strong>Category:</strong> {{ accepted.category }}</div>
+        <div><strong>Data Criação:</strong> {{ accepted.dateCreated }}</div>
+        <div><strong>Preço do Lead:</strong> {{ accepted.price | currency }}</div>
+        <div><strong>Preço do Lead:</strong> {{ accepted.price | currency }}</div>
+        <div><strong>Telefone:</strong> {{ accepted.contactPhoneNumber }}</div>
+        <div><strong>E-mail:</strong> <a href="mailto:{{ accepted.contactEmail }}">{{ accepted.contactEmail }}</a></div>
+      </div>
+    </div>
+  </div>
+  
